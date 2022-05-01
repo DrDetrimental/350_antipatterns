@@ -91,8 +91,11 @@ public class Frame {
 					// Mark the square the player is currently in as closed
 					maze[playerLocation[0]][playerLocation[1]] = 0;
 					spaces[playerLocation[0]][playerLocation[1]].setText("x");
-					player.handleMovement(i);
+					player.handleMovement();
 					break;
+				} else {
+					System.out.println("Player win!");
+					loop = false;
 				}
 			}
 			// Sets the player's new position as "O" to show where they are on the grid
