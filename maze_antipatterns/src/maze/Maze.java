@@ -21,7 +21,6 @@ import java.util.Scanner;
  */
 public class Maze {
 	
-	// All our variables. Coordinate arrays are all in (y, x) format
 	private static int width;
 	private static int height;
 	private static int[] startCoords = {0, 0};
@@ -30,9 +29,8 @@ public class Maze {
 	private static int y = 0;
 	private static int x = 0;
 	
-	// Method to read the source file and store the relevant information
 	public static void readFile(String fileName) throws Exception {
-		// Scanner object to read the file
+		
 		Scanner sc = new Scanner(new File (fileName));
 		
 		System.out.println("Getting data for the maze.");
@@ -43,18 +41,8 @@ public class Maze {
 		maze = new int[height][width];
 		System.out.println("Maze height is " + height + ", maze width is " + width);
 		
-		// Getting start/end coordinate data
-		int startY = sc.nextInt();
-		int startX = sc.nextInt();
-		int endY = sc.nextInt();
-		int endX = sc.nextInt();
-		System.out.println("Starting coordinates are [" + startX + ", " + startY + "], end coordinates are [" + endX + ", " + endY + "].");
-		
-		// Setting our start/end coordinates into their arrays
-		startCoords[0] = startY;
-		startCoords[1] = startX;
-		endCoords[0] = endY;
-		endCoords[1] = endX;
+		setStartAndEnd(sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.nextInt());
+		System.out.println("Starting coordinates are [" + startCoords[1] + ", " + startCoords[0] + "], end coordinates are [" + endCoords[1] + ", " + endCoords[0] + "].");
 		
 		// Read the data for the actual maze and set into our 2D maze array
 		while(sc.hasNextInt()) {
@@ -69,6 +57,13 @@ public class Maze {
 				y++;
 			}
 		}
+	}
+
+	private static void setStartAndEnd(int startY, int startX, int endY, int endX) {
+		startCoords[0] = startY;
+		startCoords[1] = startX;
+		endCoords[0] = endY;
+		endCoords[1] = endX;
 	}
 	
 	// Getters and setters

@@ -32,6 +32,7 @@ public class Frame {
 		
 		drawMaze();
 		
+		// Show finish space as "F"
 		spaces[Maze.getEndCoords()[0]][Maze.getEndCoords()[1]].setText("F");
 		
 		// Game loop
