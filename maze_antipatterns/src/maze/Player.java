@@ -111,13 +111,13 @@ public class Player {
 		if (checkSpaces()[0] == 'n') {
 			System.out.println("Moving north");
 			moveNorth();
-		}else if (checkSpaces()[1] == 'e') {
+		} else if (checkSpaces()[1] == 'e') {
 			System.out.println("Moving east");
 			moveEast();
-		}else if (checkSpaces()[2] == 's') {
+		} else if (checkSpaces()[2] == 's') {
 			System.out.println("Moving south");
 			moveSouth();
-		}else if (checkSpaces()[3] == 'w') {
+		} else if (checkSpaces()[3] == 'w') {
 			System.out.println("Moving west");
 			moveWest();
 		}
