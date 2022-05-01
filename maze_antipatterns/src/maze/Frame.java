@@ -13,11 +13,11 @@ public class Frame {
 	private JFrame frame;
 	private static int mazeHeight;
 	private static int mazeWidth;
-	private static int[][] maze;
-	private static JLabel[][] spaces;
+	static int[][] maze;
+	static JLabel[][] spaces;
 	private static boolean loop = true;
-	private static char[] openDirections;
-	private static int[] playerLocation;
+	static char[] openDirections;
+	static int[] playerLocation;
 	private static int moveOptions;
 
 	/**
@@ -88,35 +88,11 @@ public class Frame {
 			// mark the space the player is in as "closed" and move into an available space in the order N, E, S, W
 			for (int i = 0; i < openDirections.length; i++) {
 				if (openDirections[i] != 'x') {
-					
 					// Mark the square the player is currently in as closed
 					maze[playerLocation[0]][playerLocation[1]] = 0;
 					spaces[playerLocation[0]][playerLocation[1]].setText("x");
-					
-					if (openDirections[i] == 'n') {
-						System.out.println("Moving north");
-						player.moveNorth();
-						break;
-					}
-					if (openDirections[i] == 'e') {
-						System.out.println("Moving east");
-						player.moveEast();
-						break;
-					}
-					if (openDirections[i] == 's') {
-						System.out.println("Moving south");
-						player.moveSouth();
-						break;
-					}
-					if (openDirections[i] == 'w') {
-						System.out.println("Moving west");
-						player.moveWest();
-						break;
-					}
-					
-				} else {
-					System.out.println("Player win!");
-					loop = false;
+					player.handleMovement(i);
+					break;
 				}
 			}
 			// Sets the player's new position as "O" to show where they are on the grid

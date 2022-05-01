@@ -105,4 +105,24 @@ public class Player {
 		S1.push(p1);
 		S2.push(p2);
 	}
+
+	public void handleMovement(int i) {
+				
+		if (checkSpaces()[i] == 'n') {
+			System.out.println("Moving north");
+			moveNorth();
+		}
+		if (checkSpaces()[i] == 'e') {
+			System.out.println("Moving east");
+			moveEast();
+		}
+		if (checkSpaces()[i] == 's') {
+			System.out.println("Moving south");
+			moveSouth();
+		}
+		if (checkSpaces()[i] == 'w') {
+			System.out.println("Moving west");
+			moveWest();
+		}
+	}
 }
